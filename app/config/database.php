@@ -1,7 +1,5 @@
 <?php
-/**
- * Cấu hình kết nối cơ sở dữ liệu
- */
+
 class Database
 {
     private static $instance = null;
@@ -9,9 +7,9 @@ class Database
 
     // Thông tin kết nối database
     private $host = "localhost";
-    private $username = "root";  // Thay đổi username nếu cần
-    private $password = "";      // Thay đổi password nếu cần
-    private $database = "test1"; // Tên database đã tạo
+    private $username = "root";  
+    private $password = "";      
+    private $database = "test1"; 
     private $charset = "utf8";
 
     private function __construct()

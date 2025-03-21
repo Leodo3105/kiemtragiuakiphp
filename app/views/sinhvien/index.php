@@ -34,7 +34,7 @@
                     <td><?php echo date('d/m/Y H:i:s A', strtotime($sv['NgaySinh'])); ?></td>
                     <td>
                         <?php if (!empty($sv['Hinh'])): ?>
-                            <img src="<?php echo htmlspecialchars($sv['Hinh']); ?>" alt="<?php echo htmlspecialchars($sv['HoTen']); ?>" class="student-img">
+                            <img src="/kiemtragk/<?php echo htmlspecialchars($sv['Hinh']); ?>" alt="<?php echo htmlspecialchars($sv['HoTen']); ?>" class="student-img">
                         <?php endif; ?>
                     </td>
                     <td><?php echo htmlspecialchars($sv['TenNganh']); ?></td>

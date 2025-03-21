@@ -124,7 +124,7 @@ class SinhVienController
                 $file_name = time() . '_' . $_FILES['hinh']['name'];
                 
                 if (move_uploaded_file($temp_name, $upload_dir . $file_name)) {
-                    $this->sinhVienModel->hinh = '/public/uploads/' . $file_name;
+                    $this->sinhVienModel->hinh = 'public/uploads/' . $file_name;
                 }
             }
             

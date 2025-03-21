@@ -4,6 +4,11 @@
  * Xử lý định tuyến và khởi tạo controller tương ứng
  */
 
+// Khởi tạo session
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Tạo autoloader đơn giản
 spl_autoload_register(function ($class_name) {
     // Tìm kiếm file class trong thư mục app
@@ -69,6 +74,81 @@ switch ($controller) {
                 
             default:
                 // Mặc định hiển thị danh sách
+                $controller->index();
+                break;
+        }
+        break;
+        
+    case 'hocphan':
+        require_once 'app/controllers/HocPhanController.php';
+        $controller = new HocPhanController();
+        
+        // Gọi action tương ứng
+        switch ($action) {
+            case 'index':
+                $controller->index();
+                break;
+                
+            case 'dangKy':
+                $controller->dangKy($id);
+                break;
+                
+            default:
+                // Mặc định hiển thị danh sách
+                $controller->index();
+                break;
+        }
+        break;
+        
+    case 'login':
+        require_once 'app/controllers/LoginController.php';
+        $controller = new LoginController();
+        
+        // Gọi action tương ứng
+        switch ($action) {
+            case 'index':
+                $controller->index();
+                break;
+                
+            case 'login':
+                $controller->login();
+                break;
+                
+            case 'logout':
+                $controller->logout();
+                break;
+                
+            default:
+                // Mặc định hiển thị form đăng nhập
+                $controller->index();
+                break;
+        }
+        break;
+        
+    case 'dangky':
+        require_once 'app/controllers/DangKyController.php';
+        $controller = new DangKyController();
+        
+        // Gọi action tương ứng
+        switch ($action) {
+            case 'index':
+                $controller->index();
+                break;
+                
+            case 'delete':
+                $controller->delete($id);
+                break;
+                
+            case 'deleteAll':
+                $controller->deleteAll();
+                break;
+                
+            case 'save':
+                $controller->save();
+                break;
+                
+            default:
+                // Mặc định hiển thị danh sách đăng ký
                 $controller->index();
                 break;
         }
